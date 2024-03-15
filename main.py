@@ -129,7 +129,7 @@ For the bread|
 
 def slack(message):
 	import requests
-	from creds import oauth_token, channel_id
+	from creds import oauth_token, channel_id, test_channel_id
 
 	# API endpoint for posting messages
 	url = "https://slack.com/api/chat.postMessage"
