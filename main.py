@@ -95,11 +95,16 @@ For the bread|
 |  
  
  
-|\\)   
+|\\)    
+|\\)     
 """
 	# Split the text based on the delimiters
 	try:
 		segments = [segment.strip() for segment in re.split(delimiters, text) if segment.strip()]
+
+		# for x in segments:
+		# 	print(x)
+		# 	print('----')
 
 		print(f'*{segments[1]}*')
 		print(f'_{segments[0]}_\n')
@@ -112,13 +117,11 @@ For the bread|
 		print('\n:baguette_bread:*For The Bread*')
 		print(segments[4])
 		print(segments[5])
-		# print(segments[8])
-		# print(segments[8])
 
 		output_string = f""" *{segments[1]}* \n_{segments[0]}_\n\n:fire: *Hot Dishes*\n{segments[6]}\n{segments[7]}\n\n:leafy_green: *Sides and Greens*\n{segments[2]}\n{segments[3]}\n\n:baguette_bread: *For The Bread*\n{segments[4]}\n{segments[5]}\n\n*Allergies*\n1: Gluten / 2. Shellfish / 3. Eggs / 4. Fish / 5. Peanuts / 6. Soy / 7. Lactose / 8. Nuts / 9. Celeriac / 10. Mustard / 11. Sesame seeds / 12. Sulfor dioxide/sulfites / 13. Lupin / 14. Mollusc"""
 
 
-		# print(output_string)
+		print(output_string)
 
 		return output_string
 
@@ -142,7 +145,8 @@ def slack(message):
 
 	# Data payload for the API request
 	data = {
-		"channel": channel_id,
+		"channel": test_channel_id,
+		# "channel": channel_id,
 		"text": message
 	}
 
@@ -161,4 +165,4 @@ download_pdf(day)
 
 text = extract_text("menu.pdf")
 message = order_text(text)
-# slack(message)
+slack(message)
